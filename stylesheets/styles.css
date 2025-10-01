@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 /*////////////////////////
     Table of Contents
     1. Global Styles
@@ -8,17 +10,62 @@
     4. Areas
         4.1 Header
         4.2 Introduction
-        etc.
+        4.3 Case Studies
+        4.4 Services
+        4.5 Contact Us
+        4.6 Footer
     5. Media Queries
 ////////////////////////*/
 
 /* ------------------------------- 1. Global Styles -------------------------------- */
 
+/*CSS reset*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*Global Setup*/
+
+body {
+    font-family: Roboto, sans-serif;
+}
+
+/*Colors*/
+:root {
+    --purple: #5722CD;
+    --blue: #4845E4;
+    --pink: #ED4385;
+    --black: #0C0C0C;
+    --background-text-purple: #F2F0FF;
+    --project-background-grey: #F3F6F9;
+    --service-tile-grey: #7A7A7A;
+}
+
+/*Guide Borders*/
+.red-border {border: 2px dashed red}
+.green-border {border: 2px dashed green}
+.blue-border {border: 2px dashed blue}
+.orange-border {border: 2px dashed orange}
+.purple-border {border: 2px dashed purple}
+.brown-border {border: 2px dashed brown}
+
+
+
 /* ------------------------------- 2. Typography ----------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Merriweather, serif;
+}
 
 /* ------------------------------- 3. Layout --------------------------------------- */
 
 /* --------------- 3.1 Reusables ----------------------- */
+
+.centered-text {
+
+}
 
 /* --------------- 3.2 Other --------------------------- */
 
@@ -26,6 +73,23 @@
 
 /* --------------- 4.1 Header ------------------------- */
 
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+li {
+    list-style-type: none;
+}
+
 /* --------------- 4.2 Introduction ------------------- */
+
+/* --------------- 4.3 Case Studies ------------------- */
+
+/* --------------- 4.4 Services ------------------- */
+
+/* --------------- 4.5 Contact Us ------------------- */
+
+/* --------------- 4.6 Footer ------------------- */
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
