@@ -5,7 +5,7 @@
     1. Global Styles
     2. Typography
     3. Layout
-        3.1 Reusables
+        3.1 Re-usables
         3.2 Other
     4. Areas
         4.1 Header
@@ -41,15 +41,40 @@ body {
     --background-text-purple: #F2F0FF;
     --project-background-grey: #F3F6F9;
     --service-tile-grey: #7A7A7A;
+    --background-grey: #f3f3f3;
+}
+
+img {
+    width: 100%;
 }
 
 /*Guide Borders*/
-.red-border {border: 2px dashed red}
+/*.red-border {border: 2px dashed red}
 .green-border {border: 2px dashed green}
 .blue-border {border: 2px dashed blue}
 .orange-border {border: 2px dashed orange}
 .purple-border {border: 2px dashed purple}
 .brown-border {border: 2px dashed brown}
+.pink-border {border: 2px dashed deeppink}
+.yellow-border {border: 2px dashed yellow}*/
+
+button {
+    font-family: inherit;
+    background-color: var(--pink);
+    color: inherit;
+    padding: 1rem;
+    text-transform: uppercase;
+    border-radius: 30px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.icon {
+    width: 50px
+}
 
 
 
@@ -61,10 +86,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ------------------------------- 3. Layout --------------------------------------- */
 
-/* --------------- 3.1 Reusables ----------------------- */
+/* --------------- 3.1 Re-usables ----------------------- */
 
 .centered-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 600px;
+    text-align: center;
+}
 
+.reverse {
+    flex-direction: row-reverse;
 }
 
 /* --------------- 3.2 Other --------------------------- */
@@ -73,23 +107,148 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --------------- 4.1 Header ------------------------- */
 
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--purple);
+    color: white;
+    gap: 2rem;
+}
+
 .navbar {
     display: flex;
     justify-content: flex-end;
+    gap: 3rem;
+    width: 100vw;
+    padding: 1rem 3rem;
 }
 
 li {
     list-style-type: none;
 }
 
+header > img {
+    width: 50px;
+}
+
 /* --------------- 4.2 Introduction ------------------- */
+
+.outer-box-introduction {
+    display: flex;
+    justify-content: center;
+    padding: 6.25rem;
+}
+
+.centered-text > h3 {
+    color: var(--purple);
+}
 
 /* --------------- 4.3 Case Studies ------------------- */
 
+.outer-box-case-studies {
+    display: flex;
+    background-color: var(--background-grey);
+    padding: 1rem;
+    justify-content: center;
+}
+
+.inner-box-case-studies {
+    display: flex;
+    flex-direction: column;
+    gap: 6.25rem;
+    padding: 6.25rem 0;
+}
+
+.case-study-box {
+    display: flex;
+    gap: 9.38rem;
+}
+
+.case-study-text {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    flex-shrink: 1;
+}
+
+.case-study-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+}
+
+.case-study-text > img {
+    width: 50px;
+}
+
+.case-study-image {
+    display: flex;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.2);
+}
+
 /* --------------- 4.4 Services ------------------- */
+
+.outer-box-services {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.inner-box-services {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 6.25rem 0;
+    flex-basis: 75rem;
+}
+
+.services-box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--purple);
+    gap: 1rem;
+    padding: 1rem;
+    width: 18rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.services-box > h4 {
+    color: var(--purple);
+}
 
 /* --------------- 4.5 Contact Us ------------------- */
 
+.contact-outer-box {
+    display: flex;
+    justify-content: center;
+    background-color: var(--purple);
+    padding: 1rem;
+}
+
+.contact-inner-box {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 7rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 /* --------------- 4.6 Footer ------------------- */
+
+.footer-box {
+    display: flex;
+    justify-content: center;
+    background-color: var(--black);
+    color: white;
+    padding: 1rem;
+}
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
