@@ -36,6 +36,7 @@ body {
     font-family: Roboto, sans-serif;
     font-size: 0.7rem;
     font-weight: 200;
+    overflow-x: clip;
 
 }
 
@@ -82,13 +83,28 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    box-shadow: 0 4px 3px hsla(259, 72%, 35%, 0.8);
+}
+
 a {
     text-decoration: none;
     cursor: pointer;
+    color: var(--purple);
+}
+
+.outer-box-introduction a:hover,
+.navbar a:hover {
+    font-weight: 400;
 }
 
 .icon {
     width: 50px
+}
+
+textarea::placeholder,
+input::placeholder {
+    font-family: Roboto, sans-serif;
 }
 
 
@@ -124,8 +140,10 @@ h4 {
     gap: 1rem;
     max-width: 34rem;
     text-align: center;
-    padding: 1rem;
+    z-index: 10;
 }
+
+
 
 /* --------------- 3.2 Other --------------------------- */
 
@@ -134,12 +152,25 @@ h4 {
 /* --------------- 4.1 Header ------------------------- */
 
 header {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: var(--gradient);
+    background-image: url("/assets/noise-texture.png"),var(--gradient);
     color: white;
-    gap: 2rem;
+    gap: 3rem;
+    padding: 0 1rem;
+}
+
+header::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 2vw solid transparent;
+    border-right: 50vw solid transparent;
+    border-bottom: 2vw solid white;
+    border-left: 50vw solid white;
 }
 
 .navbar {
@@ -159,12 +190,13 @@ li {
 }
 
 .navbar a:visited {
-    color: var(--pink);
+    color: white;
 }
 
 header > img {
+    position: absolute;
+    bottom: 10px;
     width: 60px;
-    padding-top: 3.8rem;
 }
 
 header p {
@@ -172,7 +204,7 @@ header p {
 }
 
 header .centered-text {
-    padding-top: 2rem;
+    padding: 3rem 0;
 }
 
 /* --------------- 4.2 Introduction ------------------- */
@@ -180,8 +212,32 @@ header .centered-text {
 .outer-box-introduction {
     display: flex;
     justify-content: center;
-    /*padding: 4.2rem;*/
-    /*height: 25rem;*/
+    position:relative;
+    padding: 1rem;
+}
+
+.outer-box-introduction::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 2vw solid transparent;
+    border-right: 50vw solid transparent;
+    border-bottom: 2vw solid var(--background-grey);
+    border-left: 50vw solid  var(--background-grey);
+}
+
+.outer-box-introduction::before {
+    content: "hello";
+    display: block;
+    font-size: clamp(3rem, -0.875rem + 30vw, 100rem);
+    font-weight: 600;
+    position: absolute;
+    z-index: 0;
+    color: var(--purple);
+    opacity: 10%;
 }
 
 .centered-text > h3 {
@@ -200,6 +256,20 @@ h3 + p {
     background-color: var(--background-grey);
     padding: 1rem 1rem;
     justify-content: center;
+    position: relative;
+}
+
+.outer-box-case-studies::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 2vw solid transparent;
+    border-right: 50vw solid transparent;
+    border-bottom: 2vw solid white;
+    border-left: 50vw solid white;
 }
 
 .inner-box-case-studies {
@@ -208,12 +278,26 @@ h3 + p {
     gap: 4rem;
     padding: 3rem 0;
     width: 100%;
+    position: relative;
+}
+
+.inner-box-case-studies::before {
+    content: "work";
+    /*display: block;*/
+    font-size: clamp(3rem, -0.875rem + 30vw, 100rem);
+    font-weight: 600;
+    position: absolute;
+    top: -15px;
+    left: 15%;
+    color: white;
+    z-index: 0;
 }
 
 .case-study-box {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    z-index: 1;
 }
 
 .case-study-box:nth-child(even) {
@@ -231,8 +315,24 @@ h3 + p {
     padding: 1rem;
 }
 
-.case-study-text > img {
-    width: 50px;
+.case-study-text h3::after {
+    content: url(/assets/squiggle_line.svg);
+    display: block;
+}
+
+.case-study-text a::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 1px;
+    background-color: var(--purple);
+    margin-bottom: 4px;
+    transition: width .20s ease-in-out;
+}
+
+.case-study-text a:hover::after {
+    width: 40px;
+    transition: width .20s ease-in-out;
 }
 
 .case-study-image {
@@ -257,18 +357,34 @@ h3 + p {
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
-    padding: 3rem 0;
+    padding: 10rem 0 3rem 0;
     flex-basis: 75rem;
+    position: relative;
+}
+
+.inner-box-services::before {
+    content: "Services";
+    /*display: block;*/
+    font-size: clamp(3rem, -0.875rem + 25vw, 90rem);
+    font-weight: 600;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    color: var(--purple);
+    opacity: 10%;
+    z-index: 0;
 }
 
 .services-box {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--purple);
+    background-color: white;
     gap: 0.7rem;
     padding: 1.8rem;
     width: 16rem;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
 .services-box > h4 {
@@ -283,9 +399,21 @@ h3 + p {
 
 .contact-outer-box {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    background-image: var(--gradient);
-    padding: 1rem;
+    background-image: url("/assets/noise-texture.png"),var(--gradient);
+    padding: 0 1rem;
+}
+
+.contact-outer-box::before {
+    content: "";
+    /*display: block;*/
+    width: 0;
+    height: 0;
+    border-top: 2vw solid white;
+    border-right: 50vw solid white;
+    border-bottom: 2vw solid transparent;
+    border-left: 50vw solid transparent;
 }
 
 .contact-inner-box {
