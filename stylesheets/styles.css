@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*Colors*/
+:root {
+    --purple: #5722CD;
+    --blue: #4845E4;
+    --pink: #ED4385;
+    --black: #0C0C0C;
+    --background-text-purple: #F2F0FF;
+    --project-background-grey: #F3F6F9;
+    --service-tile-grey: #7A7A7A;
+    --background-grey: #f3f3f3;
+    --gradient: linear-gradient(172deg,rgba(72, 69, 228, 1) 0%, rgba(87, 34, 205, 1) 100%);
+}
+
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Re-usables
+        3.2 Other
+    4. Areas
+        4.1 Header
+        4.2 Introduction
+        4.3 Case Studies
+        4.4 Services
+        4.5 Contact Us
+        4.6 Footer
+    5. Media Queries
+////////////////////////*/
+
+/* ------------------------------- 1. Global Styles -------------------------------- */
+
+/*CSS reset*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 20px;
+}
+
+/*Global Setup*/
+
+body {
+    font-family: Roboto, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 200;
+    overflow-x: clip;
+}
+
+/*In plaats van alle img element aan te spreken,
+heb ik nu een aparte class gemaakt voor de foto's die ik op 100% wil hebben'*/
+.photo {
+    width: 100%;
+    height: auto;
+}
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Merriweather, serif;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.33rem;
+    line-height: 1.9rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+/* --------------- 3.1 Re-usables ----------------------- */
+
+.centered-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 34rem;
+    text-align: center;
+    z-index: 10;
+}
+
+/*Ik heb alles hieronder verplaatst van 'Global Styles' naar 're-usables'*/
+
+/*Guide Borders*/
+/*.red-border {border: 2px dashed red}
+.green-border {border: 2px dashed green}
+.blue-border {border: 2px dashed blue}
+.orange-border {border: 2px dashed orange}
+.purple-border {border: 2px dashed purple}
+.brown-border {border: 2px dashed brown}
+.pink-border {border: 2px dashed deeppink}
+.yellow-border {border: 2px dashed yellow}*/
+
+button {
+    font-family: inherit;
+    font-size: 0.6rem;
+    background-color: var(--pink);
+    color: inherit;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    border-radius: 30px;
+    align-self: center;
+    /*width: 10.5rem;*/
+    border: none;
+    box-shadow: 0 8px 5px hsla(259, 72%, 35%, 0.8);
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0 4px 3px hsla(259, 72%, 35%, 0.8);
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--purple);
+}
+
+.outer-box-introduction a:hover,
+.navbar a:hover {
+    font-weight: 400;
+}
+
+.icon {
+    width: 50px
+}
+
+textarea::placeholder,
+input::placeholder {
+    font-family: Roboto, sans-serif;
+}
+
+/* --------------- 3.2 Other --------------------------- */
+
+/* ------------------------------- 4. Areas ---------------------------------------- */
+
+/* --------------- 4.1 Header ------------------------- */
+
+.header-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("/assets/noise-texture.png"),var(--gradient);
+    color: white;
+    gap: 3rem;
+    padding: 0 1rem;
+}
+
+header::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 2vw solid transparent;
+    border-right: 50vw solid transparent;
+    border-bottom: 2vw solid white;
+    border-left: 50vw solid white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    gap: 3rem;
+    width: 100vw;
+    padding: 1rem 3rem;
+}
+
+li {
+    list-style-type: none;
+}
+
+/*Ik heb het zo moeten doen, anders worden de links paars.*/
+
+.navbar a:link,
+.navbar a:visited {
+    color: white;
+}
+
+header > img {
+    position: absolute;
+    bottom: 10px;
+    width: 60px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+header .centered-text {
+    padding: 3rem 0;
+}
+
+/* --------------- 4.2 Introduction ------------------- */
+
+.outer-box-introduction {
+    display: flex;
+    justify-content: center;
+    position:relative;
+    padding: 1rem;
+}
+
+.outer-box-introduction::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 2vw solid transparent;
+    border-right: 50vw solid transparent;
+    border-bottom: 2vw solid var(--background-grey);
+    border-left: 50vw solid  var(--background-grey);
+}
+
+.outer-box-introduction::before {
+    content: "hello";
+    text-align: center;
+    left: 0;
+    top: 0;
+    display: block;
+    font-size: clamp(3rem, -0.875rem + 30vw, 100rem);
+    font-weight: 600;
+    position: absolute;
+    z-index: 0;
+    color: var(--purple);
+    opacity: 10%;
+}
+
+.centered-text > h3 {
+    color: var(--purple);
+}
+
+h3 + p {
+    padding: 3.7rem 0;
+    font-size: 0.75rem;
+}
+
+/* --------------- 4.3 Case Studies ------------------- */
+
+.outer-box-case-studies {
+    display: flex;
+    background-color: var(--background-grey);
+    padding: 1rem;
+    justify-content: center;
+    position: relative;
+}
+
+.outer-box-case-studies::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 2vw solid transparent;
+    border-right: 50vw solid transparent;
+    border-bottom: 2vw solid white;
+    border-left: 50vw solid white;
+}
+
+.inner-box-case-studies {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 3rem 0;
+    width: 100%;
+    position: relative;
+}
+
+.inner-box-case-studies::before {
+    content: "work";
+    /*display: block;*/
+    font-size: clamp(3rem, -0.875rem + 30vw, 100rem);
+    font-weight: 600;
+    position: absolute;
+    top: -15px;
+    left: 15%;
+    color: white;
+    z-index: 0;
+}
+
+.case-study-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1;
+}
+
+.case-study-box:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.case-study-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    width: 100%;
+    gap: 30px;
+    padding: 1rem;
+}
+
+.case-study-text h3::after {
+    content: "";
+    display: block;
+    background-image: url(/assets/squiggle_line.svg);
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+}
+
+.case-study-text a::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 1px;
+    background-color: var(--purple);
+    margin: 4px 7px;
+    transition: width .20s ease-in-out;
+}
+
+.case-study-text a:hover::after {
+    width: 40px;
+    transition: width .20s ease-in-out;
+}
+
+.case-study-image {
+    display: flex;
+    flex-basis: 700px;
+    flex-grow: 0;
+    align-items: flex-start;
+    flex-shrink: 1;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------- 4.4 Services ------------------- */
+
+.outer-box-services {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.inner-box-services {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 10rem 0 3rem 0;
+    flex-basis: 75rem;
+    position: relative;
+}
+
+.inner-box-services::before {
+    content: "Services";
+    /*display: block;*/
+    font-size: clamp(3rem, -0.875rem + 25vw, 90rem);
+    /*text-align: center;*/
+    font-weight: 600;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    color: var(--purple);
+    opacity: 10%;
+    z-index: 0;
+    border: 2px dashed red;
+    width: 100%;
+}
+
+.services-box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--purple);
+    background-color: white;
+    gap: 0.7rem;
+    padding: 1.8rem;
+    width: 16rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.services-box > h4 {
+    color: var(--purple);
+}
+
+.icon {
+    width: 3rem;
+}
+
+/* --------------- 4.5 Contact Us ------------------- */
+
+.contact-outer-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("/assets/noise-texture.png"),var(--gradient);
+    padding: 0 1rem;
+}
+
+.contact-outer-box::before {
+    content: "";
+    /*display: block;*/
+    width: 0;
+    height: 0;
+    border-top: 2vw solid white;
+    border-right: 50vw solid white;
+    border-bottom: 2vw solid transparent;
+    border-left: 50vw solid transparent;
+}
+
+.contact-inner-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding: 3rem 0;
+    width: 100%;
+    gap: 1.2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.8rem;
+    max-width: 35rem;
+    width: 100%;
+}
+
+.form-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.8rem;
+}
+
+
+/* --------------- 4.6 Footer ------------------- */
+
+.footer-box {
+    display: flex;
+    justify-content: center;
+    background-color: var(--black);
+    color: white;
+    padding: 1rem;
+}
+
+/* ------------------------------- 5. Media Queries -------------------------------- */
+
+@media screen and (min-width: 600px) {
+
+    html {
+        font-size: 20px;
+    }
+
+    .navbar {
+        justify-content: flex-end;
+    }
+
+    .case-study-box {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .case-study-box:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .case-study-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        gap: 30px;
+        padding: 1rem 0;
+    }
+
+    .case-study-image {
+        flex-basis: auto;
+    }
+}
