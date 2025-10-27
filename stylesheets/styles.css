@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/*Colors*/
+:root {
+    --purple: #5722CD;
+    --blue: #4845E4;
+    --pink: #ED4385;
+    --black: #0C0C0C;
+    --background-text-purple: #F2F0FF;
+    --project-background-grey: #F3F6F9;
+    --service-tile-grey: #7A7A7A;
+    --background-grey: #f3f3f3;
+    --gradient: linear-gradient(172deg,rgba(72, 69, 228, 1) 0%, rgba(87, 34, 205, 1) 100%);
+}
+
 /*////////////////////////
     Table of Contents
     1. Global Styles
@@ -37,26 +50,50 @@ body {
     font-size: 0.7rem;
     font-weight: 200;
     overflow-x: clip;
-
 }
 
-/*Colors*/
-:root {
-    --purple: #5722CD;
-    --blue: #4845E4;
-    --pink: #ED4385;
-    --black: #0C0C0C;
-    --background-text-purple: #F2F0FF;
-    --project-background-grey: #F3F6F9;
-    --service-tile-grey: #7A7A7A;
-    --background-grey: #f3f3f3;
-    --gradient: linear-gradient(172deg,rgba(72, 69, 228, 1) 0%, rgba(87, 34, 205, 1) 100%);
-}
-
-img {
+/*In plaats van alle img element aan te spreken,
+heb ik nu een aparte class gemaakt voor de foto's die ik op 100% wil hebben'*/
+.photo {
     width: 100%;
     height: auto;
 }
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Merriweather, serif;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.33rem;
+    line-height: 1.9rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+/* --------------- 3.1 Re-usables ----------------------- */
+
+.centered-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 34rem;
+    text-align: center;
+    z-index: 10;
+}
+
+/*Ik heb alles hieronder verplaatst van 'Global Styles' naar 're-usables'*/
 
 /*Guide Borders*/
 /*.red-border {border: 2px dashed red}
@@ -107,51 +144,13 @@ input::placeholder {
     font-family: Roboto, sans-serif;
 }
 
-
-
-/* ------------------------------- 2. Typography ----------------------------------- */
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: Merriweather, serif;
-    font-weight: 400;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.33rem;
-    line-height: 1.9rem;
-}
-
-h4 {
-    font-size: 1rem;
-}
-
-/* ------------------------------- 3. Layout --------------------------------------- */
-
-/* --------------- 3.1 Re-usables ----------------------- */
-
-.centered-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    max-width: 34rem;
-    text-align: center;
-    z-index: 10;
-}
-
-
-
 /* --------------- 3.2 Other --------------------------- */
 
 /* ------------------------------- 4. Areas ---------------------------------------- */
 
 /* --------------- 4.1 Header ------------------------- */
 
-header {
+.header-container {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -185,10 +184,9 @@ li {
     list-style-type: none;
 }
 
-.navbar a:link {
-    color: white;
-}
+/*Ik heb het zo moeten doen, anders worden de links paars.*/
 
+.navbar a:link,
 .navbar a:visited {
     color: white;
 }
@@ -231,6 +229,9 @@ header .centered-text {
 
 .outer-box-introduction::before {
     content: "hello";
+    text-align: center;
+    left: 0;
+    top: 0;
     display: block;
     font-size: clamp(3rem, -0.875rem + 30vw, 100rem);
     font-weight: 600;
@@ -254,7 +255,7 @@ h3 + p {
 .outer-box-case-studies {
     display: flex;
     background-color: var(--background-grey);
-    padding: 1rem 1rem;
+    padding: 1rem;
     justify-content: center;
     position: relative;
 }
@@ -311,13 +312,16 @@ h3 + p {
     max-width: 400px;
     width: 100%;
     gap: 30px;
-    flex-shrink: 1;
     padding: 1rem;
 }
 
 .case-study-text h3::after {
-    content: url(/assets/squiggle_line.svg);
+    content: "";
     display: block;
+    background-image: url(/assets/squiggle_line.svg);
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
 }
 
 .case-study-text a::after {
@@ -326,7 +330,7 @@ h3 + p {
     width: 10px;
     height: 1px;
     background-color: var(--purple);
-    margin-bottom: 4px;
+    margin: 4px 7px;
     transition: width .20s ease-in-out;
 }
 
@@ -366,6 +370,7 @@ h3 + p {
     content: "Services";
     /*display: block;*/
     font-size: clamp(3rem, -0.875rem + 25vw, 90rem);
+    /*text-align: center;*/
     font-weight: 600;
     position: absolute;
     top: -30px;
@@ -373,6 +378,8 @@ h3 + p {
     color: var(--purple);
     opacity: 10%;
     z-index: 0;
+    border: 2px dashed red;
+    width: 100%;
 }
 
 .services-box {
