@@ -174,7 +174,7 @@ header::after {
 
 .navbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     gap: 3rem;
     width: 100vw;
     padding: 1rem 3rem;
@@ -296,6 +296,7 @@ h3 + p {
 
 .case-study-box {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     z-index: 1;
@@ -467,20 +468,19 @@ form {
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
 
     html {
         font-size: 20px;
     }
 
     .navbar {
-        justify-content: space-around;
+        justify-content: flex-end;
     }
 
     .case-study-box {
         display: flex;
-        flex-direction: column;
-        /*justify-content: space-evenly;*/
+        flex-direction: row;
         align-items: flex-start;
     }
 
